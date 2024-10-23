@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:todo_app/pages/home/home_page.dart';
 import 'package:todo_app/provider/task_group_provider.dart';
+import 'package:todo_app/provider/task_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => TaskGroupProvider()..listTaskGroups()),
+        ChangeNotifierProvider(create: (context) => TaskProvider())
       ],
       child: const MyApp(),
     )
